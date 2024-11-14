@@ -68,4 +68,49 @@ public class EmployeeService {
             return new ResponseEntity<>("Can not add this employee!", HttpStatus.BAD_REQUEST);
         }
     }
+
+    public ResponseEntity<String> updateAnEmployee(Employee employee){
+        try{
+            Optional<Employee> currentEmployee = employeeRepository.findById(employee.getId());
+            if(currentEmployee.isEmpty()){
+                return new ResponseEntity<>("Can not get this employee!", HttpStatus.BAD_REQUEST);
+            }
+
+            currentEmployee.get().setName(employee.getName());
+            currentEmployee.get().setPosition(employee.getPosition());
+            currentEmployee.get().setHomeAddress(employee.getHomeAddress());
+            currentEmployee.get().setCompanyAddress(employee.getCompanyAddress());
+            currentEmployee.get().setPhoneNumber(employee.getPhoneNumber());
+
+            if(employee.getPosition().getId() == null){
+                Position position = positionRepository.save(employee.getPosition());
+                currentEmployee.get().setPosition(position);
+            }
+
+            if(employee.getHomeAddress().getId() == null){
+                Address homeAddress = addressRepository.save(employee.getHomeAddress());
+                currentEmployee.get().setHomeAddress(homeAddress);
+            }
+
+            if(employee.getCompanyAddress().getId() == null){
+                Address companyAddress = addressRepository.save(employee.getCompanyAddress());
+                currentEmployee.get().setCompanyAddress(companyAddress);
+            }
+
+            employeeRepository.save(currentEmployee.get());
+            return new ResponseEntity<>("Updated successfully!", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Can not update this employee's information!", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public ResponseEntity<String> deleteAnEmployee(Long id){
+        try{
+            employeeRepository.deleteById(id);
+            return new ResponseEntity<>("Deleted this employee successful!", HttpStatus.OK);
+
+        }catch (Exception e){
+            return new ResponseEntity<>("Error! Can not delete this employee!", HttpStatus.BAD_REQUEST);
+        }
+    }
 }
