@@ -35,9 +35,15 @@ public class EmployeeService {
         }
     }
 
-    public ResponseEntity<Optional<Employee>> getAnEmployee(Long employeeID){
+    public ResponseEntity<Employee> getById(Long id){
         try{
-            return new ResponseEntity<>(employeeRepository.findById(employeeID),HttpStatus.OK);
+            Optional<Employee> employee = employeeRepository.findById(id);
+            if(employee.isEmpty()){
+                return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            }else{
+                return new ResponseEntity<>(employee.get(),HttpStatus.OK);
+            }
+
         }catch (Exception e){
             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }

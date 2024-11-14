@@ -20,6 +20,11 @@ public class EmployeeController {
         return employeeService.getAllEmployee();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
+        return employeeService.getById(id);
+    }
+
     @PostMapping("/")
     public ResponseEntity<String> addAnEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
