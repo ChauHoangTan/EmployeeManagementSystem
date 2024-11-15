@@ -1,34 +1,34 @@
 
 <div class="details-wrapper">
     <div class="details-header">
-        <span class="title">
-            {{employee?.name}}
-        </span>
+        <div class="title">
+            General Infomation
+        </div>
     </div>
     
     <div class="details-content">
     
           <mat-form-field class="field">
-            <mat-label>Name</mat-label>
-            <input matInput [disabled]="!editable" type="text"  placeholder="Haze..." [(ngModel)]="employee.name"/>
-            <mat-icon matSuffix color="warn">account_box</mat-icon>
+            <mat-label>Position</mat-label>
+            <input matInput type="text"  placeholder="Dev..." [(ngModel)]="newEmployee.position.position"/>
+            <mat-icon matSuffix color="warn">work</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="field">
-            <mat-label>Position</mat-label>
-            <input matInput [disabled]="!editable" type="text"  placeholder="Dev..." [(ngModel)]="employee.position.position"/>
-            <mat-icon matSuffix color="warn">work</mat-icon>
+            <mat-label>Name</mat-label>
+            <input matInput type="text"  placeholder="Haze..." [(ngModel)]="newEmployee.name"/>
+            <mat-icon matSuffix color="warn">account_box</mat-icon>
           </mat-form-field>
     
           <mat-form-field class="field">
             <mat-label>Email</mat-label>
-            <input matInput [disabled]="!editable" type="text"  placeholder="a@gmail.com..." [(ngModel)]="employee.email" />
+            <input matInput type="text"  placeholder="a@gmail.com..." [(ngModel)]="newEmployee.email" />
             <mat-icon matSuffix color="warn">email</mat-icon>
           </mat-form-field>
     
           <mat-form-field class="field">
             <mat-label>Phone number</mat-label>
-            <input matInput [disabled]="!editable" type="number"  placeholder="0766..." [(ngModel)]="employee.phoneNumber" />
+            <input matInput type="number"  placeholder="0976..." [(ngModel)]="newEmployee.phoneNumber" />
             <mat-icon matSuffix color="warn">phone</mat-icon>
           </mat-form-field>
     </div>
@@ -41,25 +41,25 @@
         
             <mat-form-field class="field">
                 <mat-label>Street</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="employee.homeAddress.street" />
+                <input matInput type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="newEmployee.homeAddress.street" />
                 <mat-icon matSuffix color="warn">home</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>Ward</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Tan Thanh..." [(ngModel)]="employee.homeAddress.ward" />
+                <input matInput type="text"  placeholder="Tan Thanh..." [(ngModel)]="newEmployee.homeAddress.ward" />
                 <mat-icon matSuffix color="warn">home</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>District</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Tan Phu..." [(ngModel)]="employee.homeAddress.district" />
+                <input matInput type="text"  placeholder="Tan Phu..." [(ngModel)]="newEmployee.homeAddress.district" />
                 <mat-icon matSuffix color="warn">home</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>City</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Ho Chi Minh" [(ngModel)]="employee.homeAddress.city" />
+                <input matInput type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="newEmployee.homeAddress.city" />
                 <mat-icon matSuffix color="warn">home</mat-icon>
             </mat-form-field>
         </div>
@@ -72,25 +72,25 @@
         <div class="details-content">
             <mat-form-field class="field">
                 <mat-label>Street</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="employee.companyAddress.street" />
+                <input matInput type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="newEmployee.companyAddress.street" />
                 <mat-icon matSuffix color="warn">location_city</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>Ward</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Tan Thanh..." [(ngModel)]="employee.companyAddress.ward" />
+                <input matInput type="text"  placeholder="Tan Thanh..." [(ngModel)]="newEmployee.companyAddress.ward" />
                 <mat-icon matSuffix color="warn">location_city</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>District</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Tan Phu..." [(ngModel)]="employee.companyAddress.district" />
+                <input matInput type="text"  placeholder="Tan Phu..." [(ngModel)]="newEmployee.companyAddress.district" />
                 <mat-icon matSuffix color="warn">location_city</mat-icon>
             </mat-form-field>
     
             <mat-form-field class="field">
                 <mat-label>City</mat-label>
-                <input matInput [disabled]="!editable" type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="employee.companyAddress.city" />
+                <input matInput type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="newEmployee.companyAddress.city" />
                 <mat-icon matSuffix color="warn">location_city</mat-icon>
             </mat-form-field>
       </div>
@@ -101,9 +101,9 @@
             <div class="example-button-row">
               <div class="example-flex-container">
                 <div class="example-button-container">
-                  <button mat-fab extended color="warn" (click)="deleteOnClickButton()">
+                  <button mat-fab extended color="warn">
                     <mat-icon>delete</mat-icon>
-                    Delete
+                    Cancle
                   </button>
                 </div>
               </div>
@@ -114,9 +114,9 @@
             <div class="example-button-row">
               <div class="example-flex-container">
                 <div class="example-button-container">
-                  <button mat-fab extended color="primary" (click)="editOnClickButton()">
-                    <mat-icon>{{editable ? 'save' : 'edit'}}</mat-icon>
-                    {{editable ? 'Save' : 'Edit'}}
+                  <button mat-fab extended color="primary" (click)="onClickCreateButton()">
+                    <mat-icon>add</mat-icon>
+                    Create
                   </button>
                 </div>
               </div>

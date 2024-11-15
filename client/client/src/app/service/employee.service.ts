@@ -8,28 +8,56 @@ import axios from "axios";
 export class EmployeeService {
     url = 'http://localhost:8080/employees';
 
-    async getAll(): Promise<Employee[]>{
-        const data: Employee[] = await axios.get(this.url)
+    public async getAll(): Promise<Employee[]>{
+        const response = await axios.get(this.url)
+        const data: Employee[] = response.data
         return data ?? []
     }
 
-    async getById(id: number): Promise<Employee>{
-        const data: Employee = await axios.get(this.url + `/${id}`)
+    public async getById(id: number): Promise<Employee>{
+        const response = await axios.get(this.url + `/${id}`)
+        const data: Employee = response.data
         return data ?? null
     }
 
-    async add(employee: Employee): Promise<String>{
-        const data: String = await axios.post(this.url, employee)
+    public async add(employee: Employee): Promise<String>{
+        const response = await axios.post(this.url, employee)
+        const data: String = response.data
         return data ?? ''
     }
 
-    async update(employee: Employee): Promise<String>{
-        const data: String = await axios.put(this.url, employee)
+    public async update(employee: Employee): Promise<String>{
+        const response = await axios.put(this.url, employee)
+        const data: String = response.data
         return data ?? ''
     }
 
-    async delete(id: number): Promise<String>{
-        const data: String = await axios.delete(this.url + `/id`)
+    public async delete(id: number): Promise<String>{
+        const response = await axios.delete(this.url + `/${id}`)
+        const data: String = response.data
         return data ?? ''
+    }
+
+    public emptyEmployee(): Employee{
+        return {
+            name: '',
+            position: {
+              position: ''
+            },
+            homeAddress: {
+              city: '',
+              district: '',
+              ward: '',
+              street: '',
+            },
+            companyAddress: {
+              city: '',
+              district: '',
+              ward: '',
+              street: ''
+            },
+            phoneNumber: '',
+            email: ''
+          }
     }
 }

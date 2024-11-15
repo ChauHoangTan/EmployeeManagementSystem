@@ -10,12 +10,13 @@ import java.util.List;
 
 @RequestMapping("/employees")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<Employee>> getAllEmployee(){
         return employeeService.getAllEmployee();
     }
@@ -25,12 +26,12 @@ public class EmployeeController {
         return employeeService.getById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<String> addAnEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
     }
 
-    @PutMapping("/")
+    @PutMapping("")
     public ResponseEntity<String> updateAnEmployee(@RequestBody Employee employee){
         return employeeService.updateAnEmployee(employee);
     }

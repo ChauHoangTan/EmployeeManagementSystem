@@ -1,19 +1,12 @@
+import { Address } from "./address"
+import { Position } from "./position"
+
 export interface Employee{
-    id: number,
+    id?: number,
     name: string,
-    address: {
-        id: number,
-        city: string,
-        district: string,
-        ward: string,
-        street: string
-    },
-    addressCompany: {
-        id: number,
-        city: string,
-        district: string,
-        ward: string,
-        street: string
-    },
-    phoneNumber: string
+    position: Position
+    homeAddress: Address,
+    companyAddress: Address,
+    phoneNumber: string,
+    email: String
 }

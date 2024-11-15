@@ -29,6 +29,8 @@ public class Employee {
 
     private String phoneNumber;
 
+    private String email;
+
     public Employee(){
 
     }
@@ -40,6 +42,7 @@ public class Employee {
         this.homeAddress = employee.getHomeAddress();
         this.companyAddress = employee.getCompanyAddress();
         this.phoneNumber = employee.phoneNumber;
+        this.email = employee.getEmail();
     }
 
 }
