@@ -1,4 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss
+@use "@angular/material" as mat;
+@import './app/styles/color.sass';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat.core();
+
+$light-primary: mat.define-palette(mat.$purple-palette, 900);
+$light-accent: mat.define-palette(mat.$deep-purple-palette, 700);
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
+    ),
+  )
+);
+
+$dark-primary: mat.define-palette(mat.$deep-purple-palette, A100);
+$dark-accent: mat.define-palette(mat.$teal-palette, A200);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($light-theme);
+
+:root {
+  background-color: #{$light};
+  --background-color: #{$light};
+  --text-color: #{$dark1};
+  --button-color: #{$button-primary};
+  --button-hover-color: #{$button-primary1};
+  --background-card: #{$background-dark};
+  --button-text-color: #{$light};
+  --background-header: #{$light};
+  --box-shadow-color: #{$background-dark};
+}
+
+:root[theme='dark-theme'] {
+  @include mat.all-component-themes($dark-theme);
+
+  background-color: #{$dark};
+  --background-color: #{$dark};
+  --text-color: #{$light};
+  --button-color: #{$button-dark-primary};
+  --button-hover-color: #{$button-dark-primary1};
+  --background-card: #{$background-dark4};
+  --button-text-color: #{$light};
+  --background-header: #{$dark};
+  --box-shadow-color: #{$background-light};
+}
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

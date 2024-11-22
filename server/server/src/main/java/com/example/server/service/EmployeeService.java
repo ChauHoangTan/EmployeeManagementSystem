@@ -1,18 +1,20 @@
-package com.example.server.Service;
+package com.example.server.service;
 
-import com.example.server.Model.Address;
-import com.example.server.Model.Employee;
-import com.example.server.Model.Position;
-import com.example.server.Repository.AddressRepository;
-import com.example.server.Repository.EmployeeRepository;
-import com.example.server.Repository.PositionRepository;
+import com.example.server.model.Address;
+import com.example.server.model.Employee;
+import com.example.server.model.Position;
+import com.example.server.repository.AddressRepository;
+import com.example.server.repository.EmployeeRepository;
+import com.example.server.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,9 +29,32 @@ public class EmployeeService {
     @Autowired
     AddressRepository addressRepository;
 
-    public ResponseEntity<List<Employee>> getAllEmployee() {
+    private Pageable pageSetup(String sortBy, String sortDirection, int page, int limit){
+        Sort sort;
+        if(sortDirection.equalsIgnoreCase("ascending")){
+            sort = Sort.by(sortBy).ascending();
+        }else{
+            sort = Sort.by(sortBy).descending();
+        }
+
+        return PageRequest.of(page, limit, sort);
+    }
+
+    public ResponseEntity<Page<Employee>> getAllEmployee(String sortBy, String sortDirection, int page, int limit) {
         try {
-            return new ResponseEntity<>(employeeRepository.findAll(), HttpStatus.OK);
+            Pageable pageable = pageSetup(sortBy, sortDirection, page, limit);
+            return new ResponseEntity<>(employeeRepository.findAll(pageable), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public ResponseEntity<Page<Employee>> search(String keyword, String sortBy, String sortDirection, int page, int limit) {
+        try {
+            System.out.println("keyword: " + keyword + " page: " + page + " " + "limit: " +
+                    limit + " " + "sortBy: " + sortBy + " " + "sortDirection: " + sortDirection);
+            Pageable pageable = pageSetup(sortBy, sortDirection, page, limit);
+            return new ResponseEntity<>(employeeRepository.search(keyword, pageable), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

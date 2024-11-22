@@ -1,0 +1,28 @@
+<div class="search">
+    <input placeholder="Search...." [(ngModel)] = "searchValue"/>
+    <button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"
+      (click)="searchAndSort()"> search</mat-icon></button>
+</div>
+<div class="sort">
+    <mat-form-field color="accent">
+        <mat-label>Sort By</mat-label>
+        <mat-select [(ngModel)]="selectedSortBy" class="sort_selection" name="sortBy">
+          @for (attribute of sortBy; track attribute) {
+            <mat-option [value]="attribute.value">{{attribute.viewValue}}</mat-option>
+          }
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Sort Direction</mat-label>
+        <mat-select [(ngModel)]="selectedSortDirection" class="sort_selection" name="sortDirection">
+          @for (attribute of sortDirection; track attribute) {
+            <mat-option [value]="attribute.value">{{attribute.viewValue}}</mat-option>
+          }
+        </mat-select>
+    </mat-form-field>
+
+    <button class="button-apply" (click)="searchAndSort()">Apply</button>
+    
+
+</div>

@@ -1,18 +1,24 @@
-.example-card 
+@import '../../styles/color'
+    
+.card 
   max-width: 320px
-  background-color: #00000012
+  background-color: var(--background-card)
   cursor: pointer
   transition: all 0.5s ease
+  box-shadow: 1px 1px 1px var(--background-card)
 
-.example-card:hover
+.card:hover
     transform: scale(1.02)
 
-.example-card_header
+.card_header
     display: flex
     flex-direction: row
     align-items: flex-start
 
-.card-button
+.button-container
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
     column-gap: 10px
 
 .card-container-content
@@ -26,7 +32,7 @@
 
 .card-link
     text-decoration: none
-    color: #000
-.example-header-image 
+    color: var(--text-color)
+.header-image 
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')
   background-size: cover

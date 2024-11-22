@@ -1,4 +1,4 @@
 export interface Position{
     id?: number,
-    position: String
+    position: string
 }

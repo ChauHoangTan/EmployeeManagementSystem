@@ -1,12 +1,11 @@
-package com.example.server.Controller;
+package com.example.server.controller;
 
-import com.example.server.Model.Employee;
-import com.example.server.Service.EmployeeService;
+import com.example.server.model.Employee;
+import com.example.server.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequestMapping("/employees")
 @RestController
@@ -17,8 +16,26 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @GetMapping("")
-    public ResponseEntity<List<Employee>> getAllEmployee(){
-        return employeeService.getAllEmployee();
+    public ResponseEntity<Page<Employee>> getAllEmployee(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "ascending") String sortDirection
+    ){
+        System.out.println("page: " + page + " " + "limit: " + limit + " " + "sortBy: " + sortBy + " " + "sortDirection: " + sortDirection);
+        return employeeService.getAllEmployee(sortBy, sortDirection, page, limit);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<Employee>> search(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "ascending") String sortDirection
+    ){
+
+        return employeeService.search(keyword, sortBy, sortDirection, page, limit);
     }
 
     @GetMapping("/{id}")

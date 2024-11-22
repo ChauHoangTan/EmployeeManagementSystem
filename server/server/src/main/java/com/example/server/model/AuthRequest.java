@@ -1,4 +1,12 @@
 package com.example.server.model;
 
-public class AuthRequest {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class AuthRequest{
+    private String username;
+    private String password;
+    private String code;
 }

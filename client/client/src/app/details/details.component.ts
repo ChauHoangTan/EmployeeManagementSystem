@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from "@angular/forms";
+import { JWTService } from "../service/jwtUtil.service";
 
 @Component({
     selector: 'details-component',
@@ -30,17 +31,17 @@ export class DetailsComponent{
     employeeId = parseInt(this.route.snapshot.params['id'], 10)
     employee: Employee = this.employeeService.emptyEmployee()
 
+    public jwtService: JWTService = inject(JWTService)
+    
     public editable: boolean = false
     constructor(){
         this.employeeService.getById(this.employeeId).then((employee: Employee) => {
             this.employee = employee
-            console.log(this.employee)
         })
     }
 
     public async editOnClickButton(){
         if(this.editable){
-            console.log(this.employee)
             await this.employeeService.update(this.employee)
         }
         this.editable = !this.editable

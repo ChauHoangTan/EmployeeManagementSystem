@@ -1,0 +1,68 @@
+@import '../../styles/color'
+    
+.search 
+    margin-top: 10px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 90vw
+    min-width: 400px
+    max-width: 700px
+    border: 2px solid var(--button-color)
+    border-radius: 50px
+.search input
+    width: 100%
+    height: 30px
+    border: none
+    flex: 1 1 auto
+    margin: 0px 10px
+    outline: none
+    font-size: 1rem
+    background-color: var(--background-color)
+    color: var(--text-color)
+
+.saearch input:focus
+    outline: none
+
+.search button
+    cursor: pointer
+    outline: none
+    border: none
+    margin: 2px
+    width: 44px
+    height: 40px
+    border-radius: 100%
+    background-color: var(--button-color)
+    transition: all 0.3s ease
+    color: var(--button-text-color)
+
+.search button:hover
+    transform: scale(1.1)
+
+.button-apply
+    height: 55px
+    padding: 0px 30px
+    border: none
+    border-radius: 10px
+    box-shadow: 2px 2px $light2
+    cursor: pointer
+    transition: all 0.5s ease
+    background-color: var(--button-color)
+    color: var(--button-text-color)
+    font-size: 1rem
+
+.button-apply:hover
+    transform: scale(1.05)
+    background-color: var(--button-hover-color)
+
+.sort
+    margin-top: 10px
+    display: flex
+    flex-flow: row
+    justify-content: center
+    align-items: flex-start
+    column-gap: 10px
+
+
+

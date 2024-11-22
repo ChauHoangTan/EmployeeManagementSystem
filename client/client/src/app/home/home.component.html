@@ -1,6 +1,12 @@
-<div class="employee-list">
-    <employee-card
-        *ngFor="let employee of employeeList"
-        [employee]="employee">
-    </employee-card>
+<div id="home-container">
+    <search-comp [executeSearchFunction]="search"></search-comp>
+    <div class="employee-list">
+        <employee-card
+            *ngFor="let employee of employeeList; trackBy trackByEmployeeId"
+            [employee]="employee">
+        </employee-card>
+    </div>
+    <paginator-comp [totalPages]="totalPages" [currentPage]="currentPage" 
+        [nextPageFunction]="nextPage" [prePageFunction]="prePage"
+        [pageSize]="limit" [changePageSizeFunction]="changePageSize"></paginator-comp>
 </div>

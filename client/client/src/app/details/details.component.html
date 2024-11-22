@@ -2,34 +2,34 @@
 <div class="details-wrapper">
     <div class="details-header">
         <span class="title">
-            {{employee?.name}}
+            General Infomation
         </span>
     </div>
     
     <div class="details-content">
     
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Name</mat-label>
             <input matInput [disabled]="!editable" type="text"  placeholder="Haze..." [(ngModel)]="employee.name"/>
-            <mat-icon matSuffix color="warn">account_box</mat-icon>
+            <mat-icon matSuffix color="primary">account_box</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Position</mat-label>
             <input matInput [disabled]="!editable" type="text"  placeholder="Dev..." [(ngModel)]="employee.position.position"/>
-            <mat-icon matSuffix color="warn">work</mat-icon>
+            <mat-icon matSuffix color="primary">work</mat-icon>
           </mat-form-field>
     
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Email</mat-label>
             <input matInput [disabled]="!editable" type="text"  placeholder="a@gmail.com..." [(ngModel)]="employee.email" />
-            <mat-icon matSuffix color="warn">email</mat-icon>
+            <mat-icon matSuffix color="primary">email</mat-icon>
           </mat-form-field>
     
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Phone number</mat-label>
             <input matInput [disabled]="!editable" type="number"  placeholder="0766..." [(ngModel)]="employee.phoneNumber" />
-            <mat-icon matSuffix color="warn">phone</mat-icon>
+            <mat-icon matSuffix color="primary">phone</mat-icon>
           </mat-form-field>
     </div>
     
@@ -39,28 +39,28 @@
         </div>
         <div class="details-content">
         
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Street</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="employee.homeAddress.street" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Ward</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Tan Thanh..." [(ngModel)]="employee.homeAddress.ward" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>District</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Tan Phu..." [(ngModel)]="employee.homeAddress.district" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>City</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Ho Chi Minh" [(ngModel)]="employee.homeAddress.city" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -70,33 +70,34 @@
             Company Address
         </div>
         <div class="details-content">
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Street</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="employee.companyAddress.street" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Ward</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Tan Thanh..." [(ngModel)]="employee.companyAddress.ward" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>District</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Tan Phu..." [(ngModel)]="employee.companyAddress.district" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>City</mat-label>
                 <input matInput [disabled]="!editable" type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="employee.companyAddress.city" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
       </div>
       
     </div>
-    <div class="button-wrapper">
+    <div class="button-wrapper"
+        *ngIf="jwtService.getRole() === 'ROLE_ADMIN'">
         <section class="card-button">
             <div class="example-button-row">
               <div class="example-flex-container">

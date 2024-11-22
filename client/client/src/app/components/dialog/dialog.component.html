@@ -1,5 +1,5 @@
 
-<div class="details-wrapper">
+<div class="dialog-wrapper">
     <div class="details-header">
         <div class="title">
             General Infomation
@@ -7,29 +7,32 @@
     </div>
     
     <div class="details-content">
-    
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Position</mat-label>
-            <input matInput type="text"  placeholder="Dev..." [(ngModel)]="newEmployee.position.position"/>
-            <mat-icon matSuffix color="warn">work</mat-icon>
+            <mat-select [(ngModel)]="selectedPosition" name="sortDirection"
+              (selectionChange) = "changeSelectPosition($event)">
+              @for (position of positionList; track position) {
+                <mat-option [value]="position.id">{{position.position}}</mat-option>
+              }
+            </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Name</mat-label>
             <input matInput type="text"  placeholder="Haze..." [(ngModel)]="newEmployee.name"/>
-            <mat-icon matSuffix color="warn">account_box</mat-icon>
+            <mat-icon matSuffix color="primary">account_box</mat-icon>
           </mat-form-field>
     
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Email</mat-label>
             <input matInput type="text"  placeholder="a@gmail.com..." [(ngModel)]="newEmployee.email" />
-            <mat-icon matSuffix color="warn">email</mat-icon>
+            <mat-icon matSuffix color="primary">email</mat-icon>
           </mat-form-field>
     
-          <mat-form-field class="field">
+          <mat-form-field class="field" color="accent">
             <mat-label>Phone number</mat-label>
             <input matInput type="number"  placeholder="0976..." [(ngModel)]="newEmployee.phoneNumber" />
-            <mat-icon matSuffix color="warn">phone</mat-icon>
+            <mat-icon matSuffix color="primary">phone</mat-icon>
           </mat-form-field>
     </div>
     
@@ -39,28 +42,28 @@
         </div>
         <div class="details-content">
         
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Street</mat-label>
                 <input matInput type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="newEmployee.homeAddress.street" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Ward</mat-label>
                 <input matInput type="text"  placeholder="Tan Thanh..." [(ngModel)]="newEmployee.homeAddress.ward" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>District</mat-label>
                 <input matInput type="text"  placeholder="Tan Phu..." [(ngModel)]="newEmployee.homeAddress.district" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>City</mat-label>
                 <input matInput type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="newEmployee.homeAddress.city" />
-                <mat-icon matSuffix color="warn">home</mat-icon>
+                <mat-icon matSuffix color="primary">home</mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -70,28 +73,28 @@
             Company Address
         </div>
         <div class="details-content">
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Street</mat-label>
                 <input matInput type="text"  placeholder="214 Nguyen Truong To..." [(ngModel)]="newEmployee.companyAddress.street" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>Ward</mat-label>
                 <input matInput type="text"  placeholder="Tan Thanh..." [(ngModel)]="newEmployee.companyAddress.ward" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>District</mat-label>
                 <input matInput type="text"  placeholder="Tan Phu..." [(ngModel)]="newEmployee.companyAddress.district" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
     
-            <mat-form-field class="field">
+            <mat-form-field class="field" color="accent">
                 <mat-label>City</mat-label>
                 <input matInput type="text"  placeholder="Ho Chi Minh..." [(ngModel)]="newEmployee.companyAddress.city" />
-                <mat-icon matSuffix color="warn">location_city</mat-icon>
+                <mat-icon matSuffix color="primary">location_city</mat-icon>
             </mat-form-field>
       </div>
       

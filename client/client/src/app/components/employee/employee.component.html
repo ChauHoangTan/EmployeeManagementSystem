@@ -1,8 +1,8 @@
 
 <a class="card-link" [routerLink]="['/details', employee.id]">
-    <mat-card class="example-card" appearance="outlined">
-        <mat-card-header class="example-card_header">
-          <div mat-card-avatar class="example-header-image"></div>
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header class="card_header">
+          <div mat-card-avatar class="header-image"></div>
           <mat-card-title>{{employee.name}}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -20,30 +20,18 @@
                 <span matListItemTitle>{{employee.companyAddress.street}}</span>
             </mat-list-item>
         </mat-card-content>
-        <mat-card-actions class="card-button">
-            <section>
-                <div class="example-button-row">
-                  <div class="example-flex-container">
-                    <div class="example-button-container">
-                      <button mat-fab extended color="warn">
-                        <mat-icon>delete</mat-icon>
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                </div>
+        <mat-card-actions class="button-container">
+            <section *ngIf="jwtService.getRole() === 'ROLE_ADMIN'">
+              <button mat-fab extended color="warn">
+                <mat-icon>delete</mat-icon>
+                Remove
+              </button>
             </section>
             <section class="card-button">
-                <div class="example-button-row">
-                  <div class="example-flex-container">
-                    <div class="example-button-container">
-                      <button mat-fab extended color="primary">
-                        <mat-icon>visibility</mat-icon>
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <button mat-fab extended color="primary">
+                <mat-icon>visibility</mat-icon>
+                View Details
+              </button>
             </section>
         </mat-card-actions>
     </mat-card>

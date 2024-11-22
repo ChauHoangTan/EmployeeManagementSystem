@@ -8,5 +8,5 @@ export interface Employee{
     homeAddress: Address,
     companyAddress: Address,
     phoneNumber: string,
-    email: String
+    email: string
 }

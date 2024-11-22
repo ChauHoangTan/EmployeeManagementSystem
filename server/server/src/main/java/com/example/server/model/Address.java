@@ -1,11 +1,8 @@
-package com.example.server.Model;
+package com.example.server.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Setter
 @Getter

@@ -16,7 +16,7 @@ import java.io.File;
 @Service
 // Class
 // Implementing EmailService interface
-public class EmailServiceImpl {
+public class EmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -25,7 +25,7 @@ public class EmailServiceImpl {
 
     // Method 1
     // To send a simple email
-    public String sendSimpleMail(EmailDetails details)
+    public boolean sendSimpleMail(EmailDetails details)
     {
 
         // Try block to check for exceptions
@@ -43,12 +43,13 @@ public class EmailServiceImpl {
 
             // Sending the mail
             javaMailSender.send(mailMessage);
-            return "Mail Sent Successfully...";
+            return true;
         }
 
         // Catch block to handle the exceptions
         catch (Exception e) {
-            return "Error while Sending Mail";
+            System.err.println(e.getMessage());
+            return false;
         }
     }
 

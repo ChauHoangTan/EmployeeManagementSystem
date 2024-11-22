@@ -1,0 +1,11 @@
+
+<div class="theme-mode-container">
+    <mat-icon [color]="!isLightMode ? 'accent' : ''">nights_stay</mat-icon>
+    <section>
+        <mat-slide-toggle
+        [checked]="isLightMode"
+        (click)="changeThemeMode()">
+    </mat-slide-toggle>
+    </section>
+    <mat-icon [color]="isLightMode ? 'accent' : ''">wb_sunny</mat-icon>
+</div>

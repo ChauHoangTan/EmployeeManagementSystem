@@ -1,0 +1,26 @@
+<div class="login-container">
+    <div class="form-container">
+        <form class="login-form" (ngSubmit)="handleLogin()">
+          <span class="login-text">Log in</span>
+          <div class="input-text">
+            <input placeholder="Username..." type="text" [(ngModel)] = "username" name="username"/>
+          </div>
+          <div class="input-text">
+            <input placeholder="Password..."  [(ngModel)] = "password" name="password"
+              [type] = "isHidePassword ? 'password' : 'text'"/>
+            <mat-icon *ngIf="!isHidePassword" class="icon" (click)="handleHidePassword()">visibility</mat-icon>
+            <mat-icon *ngIf="isHidePassword" class="icon" (click)="handleHidePassword()">visibility_off</mat-icon>
+          </div>
+          <span *ngIf="isError" class="error">Username or password is incorrect!</span>
+          <button (click)="handleLogin()">Log in
+            <mat-icon>
+              login
+            </mat-icon>
+          </button>
+          <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active" 
+            class="forgot-password">
+            <span>Forgot your password?</span>
+          </a>
+        </form>
+    </div>
+</div>

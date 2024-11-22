@@ -1,20 +1,37 @@
 
 <main class="main">
-  <header>
+  <header ng-show="false">
     <mat-toolbar class="header-bar">
-      <button mat-icon-button class="example-icon button-logo" aria-label="Example icon-button with menu icon"
+      <a class="logo" aria-label="Example icon-button with menu icon"
         routerLink="/">
         <img class="system-logo" src="https://edwardthienhoang.wordpress.com/wp-content/uploads/2020/04/1_zmkt_fcfh7g06ganvgsfjq.png?w=700"/>
-      </button>
-      <span>My App</span>
+      </a>
+
       <span class="example-spacer"></span>
+
+      <theme-component></theme-component>
+
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-        (click)="openCreateDialog()">
-        <mat-icon class="add-icon" fontIcon="add_box"></mat-icon>
+        (click)="openCreateDialog()"
+        *ngIf="jwtService.getRole() ==='ROLE_ADMIN'">
+        <mat-icon class="add-icon" fontIcon="add_box" color="primary"></mat-icon>
       </button>
-      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button> -->
+      
+      <div class="menu-account">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon color="primary">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon color="primary">face icon</mat-icon>
+            <span>Account</span>
+          </button>
+          <button mat-menu-item (click) = "handleLogout()">
+            <mat-icon color="primary">exit_to_app</mat-icon>
+            <span>Log out</span>
+          </button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
   </header>
 </main>
