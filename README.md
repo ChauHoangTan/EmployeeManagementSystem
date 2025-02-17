@@ -1,4 +1,4 @@
-**Employee Management System**
+# **Employee Management System**
 A full-stack Employee Management System built using Angular on the frontend and Java Spring Boot on the backend with PostgreSQL as the database. This project demonstrates CRUD operations, authentication, and role-based access control for managing employees in an organization.
 
 # Table of Contents
@@ -43,17 +43,17 @@ A full-stack Employee Management System built using Angular on the frontend and 
 
 # Project Structure
 employee-management-system/
-├── server/               # Spring Boot application
-│   ├── src/main/java/...  # Java source code
-│   ├── src/main/resources # Application properties, SQL scripts, etc.
-│   └── pom.xml            # Maven configuration
-└── client/              # Angular application
-    ├── src/
-    │   ├── app/           # Angular components, services, modules
-    │   ├── assets/        # Images, fonts, etc.
-    │   └── styles/        # SCSS stylesheets
-    ├── angular.json        # Angular configuration
-    └── package.json        # Node package dependencies
+server/               # Spring Boot application
+        src/main/java/...  # Java source code
+         src/main/resources # Application properties, SQL scripts, etc.
+         pom.xml            # Maven configuration
+client/              # Angular application
+        src/
+        app/           # Angular components, services, modules
+        assets/        # Images, fonts, etc.
+        styles/        # SCSS stylesheets
+        angular.json        # Angular configuration
+        package.json        # Node package dependencies
 
 # Setup & Installation
 ## Prerequisites
