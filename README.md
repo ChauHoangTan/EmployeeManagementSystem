@@ -7,21 +7,33 @@ A full-stack Employee Management System built using Angular on the frontend and 
 ## Project Structure
 ## Setup & Installation
 ## Running the Application
-## Deployment
 ## Usage
-## License
 
 # Features
 ## Employee Management:
 - Create, read, update, and delete employee records.
 - Employee details include personal information, department, role, etc.
+- Home:
+- ![image](https://github.com/user-attachments/assets/51404462-9ad0-4e80-bbda-8db67a51b58f)
+- ![image](https://github.com/user-attachments/assets/02d79ae7-fc4f-416c-9c9b-5763c8af0819)
+- ![image](https://github.com/user-attachments/assets/7d98a37f-884a-4762-8c63-61912d53b35a)
+- Employee Detail:
+- ![image](https://github.com/user-attachments/assets/a3b25b91-48fd-40f1-9163-fd9eebc5a726)
+
 ## Authentication & Authorization:
 - Secure login with Spring Security.
 - Role-based access control to protect sensitive operations.
+- Login:
+- ![image](https://github.com/user-attachments/assets/9c1da98f-8da4-4551-9225-faf8c0b2d83c)
+- Forgot Password Verify:
+- ![image](https://github.com/user-attachments/assets/d1e4e9b9-3f5e-49a0-abc0-9c9226128ea1)
+- ![image](https://github.com/user-attachments/assets/675be15e-07fc-43b6-ab1c-41696d6e80cc)
+- ![image](https://github.com/user-attachments/assets/08cba65d-9067-4c24-bfa2-ebdcbd4cc625)
+
 ## Responsive UI:
 - Built with Angular for dynamic, single-page application experience.
 - HTML, SCSS, and TypeScript used for clean, modular front-end code.
-## Robust Backend:
+## Backend:
 - RESTful APIs built with Spring MVC.
 - Data persistence with Spring JPA and PostgreSQL.
 ## Scalable Architecture:
@@ -42,18 +54,20 @@ A full-stack Employee Management System built using Angular on the frontend and 
 - PostgreSQL
 
 # Project Structure
+```
 employee-management-system/
-server/               # Spring Boot application
-        src/main/java/...  # Java source code
-         src/main/resources # Application properties, SQL scripts, etc.
-         pom.xml            # Maven configuration
-client/              # Angular application
-        src/
-        app/           # Angular components, services, modules
-        assets/        # Images, fonts, etc.
-        styles/        # SCSS stylesheets
-        angular.json        # Angular configuration
-        package.json        # Node package dependencies
+├── backend/               # Spring Boot application
+│   ├── src/main/java/...  # Java source code
+│   ├── src/main/resources # Application properties, SQL scripts, etc.
+│   └── pom.xml            # Maven configuration
+└── frontend/              # Angular application
+    ├── src/
+    │   ├── app/           # Angular components, services, modules
+    │   ├── assets/        # Images, fonts, etc.
+    │   └── styles/        # SCSS stylesheets
+    ├── angular.json        # Angular configuration
+    └── package.json        # Node package dependencies
+```
 
 # Setup & Installation
 ## Prerequisites
@@ -88,19 +102,22 @@ Users can switch themes from the settings or header menu for a personalized expe
 - Users can navigate between pages to view all employee records.
 - API Endpoints:
 - User APIs:
+```
 POST /authenticate/signup: Register a new user and send OTP via email.
 POST /authenticate/login: Authenticate a user and issue a JWT token.
 POST /authenticate/forgot-password/verify-username: Verify is username is correct or not.
 POST /authenticate/forgot-password/verify-code: Verify is code is correct or not.
 POST /authenticate/forgot-password/change-new-password: Change user's password.
-
+```
 ## Employee APIs:
+```
 GET /employees: Retrieve a paginated list of employees.
 GET /employees/{id}: Retrieve details for a specific employee.
 GET /employees/search: Search employees follow keyword.
 POST /employees: Create a new employee.
 PUT /employees/{id}: Update an existing employee.
 DELETE /employees/{id}: Delete an employee record.
+```
 
 # How It Works:
 ## User Registration:
